@@ -50,7 +50,7 @@ public class Snake implements ActionListener, KeyListener {
         
         public void startGame(){
 		over = false;
-		paused = false;
+		paused = true;
 		time = 0;
 		score = 0;
 		tailL = 14;
@@ -173,6 +173,9 @@ public class Snake implements ActionListener, KeyListener {
 				paused = !paused;
 			}
 		}
+                if (i == KeyEvent.VK_ESCAPE) {
+                    System.exit(0);
+                }
 	}
         
         @Override

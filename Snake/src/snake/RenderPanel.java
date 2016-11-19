@@ -44,17 +44,23 @@ public class RenderPanel extends JPanel {
                         snake.tailL + ", Time: " + snake.time / 20;
 		
 		g.setColor(Color.white);
+                if (snake.time == 0 && snake.paused == true){
+                    String string2 = "Controls: W=UP A=LEFT S=DOWN D=RIGHT";
+                    string = "Welcome! To play press Space";
+                    g.drawString(string2, (int) (getWidth() / 2 - string2.length() 
+                                * 2.5f), (int) snake.di.getHeight() / 4);
+                }
 		g.drawString(string, (int) (getWidth() / 2 - string.length() * 2.5f), 10);
-                string = "Game Over! See ya around!";
+                string = "Game Over! Press Space to Restart!";
 
 		if (snake.over){
 			g.drawString(string, (int) (getWidth() / 2 - string.length() 
                                 * 2.5f), (int) snake.di.getHeight() / 4);
 		}
 
-		string = "Pause!";
+		string = "Paused";
 
-		if (snake.paused && !snake.over){
+		if (snake.paused && !snake.over && snake.time != 0){
 			g.drawString(string, (int) (getWidth() / 2 - string.length() 
                                 * 2.5f), (int) snake.di.getHeight() / 4);
 		}
